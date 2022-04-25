@@ -11,23 +11,29 @@
           <table class="table align-middle">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Edad</th>
-                <th>Signo</th>
-                <th>Opciones</th>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Signo</th>
+                <th scope="col" colspan="2">Opciones</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td scope="row"></td>
-                <td></td>
-                <td></td>
+                <td scope="row">1</td>
+                <td>Charlie Villa</td>
+                <td>27</td>
+                <td>Aries</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
               </tr>
               <tr>
-                <td scope="row"></td>
-                <td></td>
-                <td></td>
+                <td scope="row">1</td>
+                <td>Charlie Villa</td>
+                <td>27</td>
+                <td>Aries</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
               </tr>
             </tbody>
           </table>
@@ -36,7 +42,11 @@
       </div>
     </div>
     <div class="col-md-4">
-      DOS
+      <div class="card">
+        <div class="card-header">
+          Ingresar Datos
+        </div>
+      </div>
     </div>
   </div>
 </div>
