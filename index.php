@@ -1,5 +1,12 @@
 <?php include 'template/header.php' ?>
 
+<?php
+include_once('model/conexion.php');
+$sentencia = $db->query("select * from persons");
+$persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
+// print_r($persona);
+?>
+
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-7">
@@ -19,22 +26,24 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope="row">1</td>
-                <td>Charlie Villa</td>
-                <td>27</td>
-                <td>Aries</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td>Charlie Villa</td>
-                <td>27</td>
-                <td>Aries</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
-              </tr>
+
+              <?php
+              foreach ($persona as $dato) {
+              ?>
+
+                <tr>
+                  <td scope="row"><?php echo $dato->PersonID ?></td>
+                  <td><?php echo $dato->name ?></td>
+                  <td><?php echo $dato->age ?></td>
+                  <td><?php echo $dato->sign ?></td>
+                  <td>Editar</td>
+                  <td>Eliminar</td>
+                </tr>
+
+              <?php
+              }
+              ?>
+
             </tbody>
           </table>
 
@@ -46,6 +55,24 @@
         <div class="card-header">
           Ingresar Datos
         </div>
+        <form action="registrar.php" class="p-4" method="post">
+          <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" name="txtNombre" class="form-control" autofocus>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Edad:</label>
+            <input type="number" name="txtEdad" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Signo:</label>
+            <input type="text" name="txtSigno" class="form-control">
+          </div>
+          <div class="d-grid">
+            <input type="hidden" name="oculto" value="1">
+            <input type="submit" class="btn-primary" value="Registrar">
+          </div>
+        </form>
       </div>
     </div>
   </div>
